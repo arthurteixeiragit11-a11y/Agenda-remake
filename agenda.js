@@ -1,6 +1,5 @@
 
-// FUNÇÕES PARA MANIPULAR OS DADOS NA AGENDA
-
+// FUNÇÕES PARA MANIPULAR OS DADOS NA AGENDA:
 // 1.FUNÇÃO DE ADICIONAR UM CONTATO
 function funcaoAdicionar(arrayContato){
     let arrayAdicionar = funcaoPedir();
@@ -25,6 +24,7 @@ function funcaoPedir(){
     return arrayContato;
 };
 
+//FUNÇÃO "funcaoola" PARA VERIFICAR SE OS VALORES DA FUNÇÃO "funcaoPedir" ESTAVAM SENDO TRANSPORTADOS PARA AS OUTRAS FUNÇÕES (IREI TIRAR NO PROXIMO COMMIT PROVAVELMENTE)
 function funcaoola(arrayContato){
     let arrayOla = funcaoPedir();
     alert(`olá ${arrayOla[0]} do número ${arrayOla[1]}`);
@@ -42,8 +42,6 @@ let opcao = ""
 opcao = parseInt(prompt("Digite algo: "));
 
     do{
-
-    
         switch(opcao){
             case 1:
                 //FUNÇÃO ADICIONAR
