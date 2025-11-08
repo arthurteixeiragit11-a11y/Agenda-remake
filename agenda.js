@@ -1,76 +1,80 @@
-
-// FUNÇÕES PARA MANIPULAR OS DADOS NA AGENDA
-
-// 1.FUNÇÃO DE ADICIONAR UM CONTATO
+// FUNÇÕES PARA MANIPULAR OS DADOS NA AGENDA:
+//1.FUNÇÃO DE ADICIONAR UM CONTATO(FEITO);
 function funcaoAdicionar(arrayContato){
-    let arrayAdicionar = funcaoPedir();
+    let arrayAdicionar = funcaoDados();
     matrizContatos.push(arrayAdicionar);
-    alert("contato adicionado");
-    return matrizContatos
+    alert(`Contato de nome ${arrayAdicionar[0]} e numero ${arrayAdicionar[1]} adicionado`);
+    return matrizContatos;
 }
 
-// 2.FUNÇÃO PARA VISUALIZAR TODOS OS CONTATOS
+//2.FUNÇÃO PARA VISUALIZAR TODOS OS CONTATOS(FEITO);
+function funcaoVisualizar(matrizContatos){
+    const mostrar = matrizContatos;
+    alert("Lista de contatos imprimida no console ;)");
+    console.log("Lista abaixo:")
+    console.log(mostrar);
+    return mostrar;
+};
 
-// 3.FUNÇÃO PARA REMOVER UM CONTATO
+// 3.FUNÇÃO PARA REMOVER UM CONTATO(FEITO);
+function funcaoRemover(){
+    const itemRemover = prompt("Digite o nome ou o telefone do contato que deseja remover: ")
+    for(let i = 1; i < matrizContatos.length; i++){
+        if(itemRemover === matrizContatos[i][0] || itemRemover === matrizContatos[i][1]){
+            alert("Contato encontrado!")
+            matrizContatos.splice(i, 1)
+            alert(`Contato de nome ${i.valueOf} de número ${i.valueOf} foi removido`)
+            break;
+        }
+    }
+}
 
-// 4. FUNÇÃO PARA EDITAR UM CONTATO
 
-// 5.FUNÇÃO PARA BUSCAR UM CONTATO
+// 4.FUNÇÃO PARA EDITAR UM CONTATO;
 
-//FUNÇÃO PARA PEDIR DADOS
-function funcaoPedir(){
+//5.FUNÇÃO PARA PEDIR DADOS(FEITO);
+function funcaoDados(){
     let nomContato = prompt("Digite o nome do contato:");
     let numContato = prompt("Digite o número do contato: ");
     const arrayContato = new Array(nomContato, numContato);
     return arrayContato;
 };
 
-function funcaoola(arrayContato){
-    let arrayOla = funcaoPedir();
-    alert(`olá ${arrayOla[0]} do número ${arrayOla[1]}`);
-};
-
-// CRIAÇÃO DA MATRIZ QUE IRÁ ARAMZENAR OS CONTATOS
+// CRIAÇÃO DA MATRIZ QUE IRÁ ARAMZENAR OS CONTATOS;
 const matrizContatos = [
     ["Nome", "Telefone"]
 ];
 
-//MENU PARA NAVEGAÇÃO DA AGENDA (SWITCH CASE + DO/WHILE)(FEITO )
-const flagMenu = true;
+//MENU PARA NAVEGAÇÃO DA AGENDA (SWITCH CASE + DO/WHILE)(FEITO);
+let flagMenu = true;
 let opcao = ""
-
-opcao = parseInt(prompt("Digite algo: "));
-
+let usu = prompt("Digite seu nome do usuário: ")
     do{
 
-    
+        opcao = parseInt(prompt(`------------------------------------------------------------------------------ \nBem vindo ${usu} a sua agenda de contatos\n ------------------------------------------------------------------------------  [1] para adicionar um contato \n [2] para visualizar todos os contatos \n [3] para remover um contato \n [4] para editar os dados de algum contato \n [5] para sair`))
+
         switch(opcao){
             case 1:
-                //FUNÇÃO ADICIONAR
+                //FUNÇÃO ADICIONAR;
                 funcaoAdicionar();
                 break;
             case 2:
-                //FUNÇÃO VISUALIZAR
-                alert("2");
+                //FUNÇÃO VISUALIZAR;
+                funcaoVisualizar(matrizContatos);
                 break;
             case 3:
-                //FUNÇÃO REMOVER
-                alert("3");
+                funcaoRemover()
                 break;
             case 4:
-                //FUNÇÃO EDITAR
+                //FUNÇÃO EDITAR;
                 alert("4");
                 break;
             case 5:
-                //FUNÇÃO BUSCAR
-                alert("5")
-                break;
-            case 6:
-                alert("saindo...")
-                flagMenu = false
+                alert("saindo...");
+                flagMenu = false;
                 break;
             default:
-                alert("Digite algo valido")
+                alert("Digite algo valido");
                 break;
         }
     }while(flagMenu === true);
