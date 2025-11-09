@@ -23,12 +23,11 @@ function funcaoRemover(){
         if(itemRemover === matrizContatos[i][0] || itemRemover === matrizContatos[i][1]){
             alert("Contato encontrado!")
             matrizContatos.splice(i, 1)
-            alert(`Contato de nome ${i.valueOf} de número ${i.valueOf} foi removido`)
+            alert(`Contato removido`)
             break;
         }
     }
 }
-
 
 // 4.FUNÇÃO PARA EDITAR UM CONTATO;
 
