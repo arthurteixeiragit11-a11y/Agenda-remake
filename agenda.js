@@ -23,13 +23,46 @@ function funcaoRemover(){
         if(itemRemover === matrizContatos[i][0] || itemRemover === matrizContatos[i][1]){
             alert("Contato encontrado!")
             matrizContatos.splice(i, 1)
+            alert(`Contato de nome ${i.valueOf} de número ${i.valueOf} foi removido`)
             alert(`Contato removido`)
             break;
         }
     }
 }
 
-// 4.FUNÇÃO PARA EDITAR UM CONTATO;
+
+// 4.FUNÇÃO PARA EDITAR UM CONTATO(AINDA EM DESENVOLVIMENTO.);
+function funcaoEditar(){
+    const itemEditar = prompt("Digite o nome ou o telefone do cotato que deseja editar: ")
+    for(let i = 1; i < matrizContatos.length; i++){
+        if(itemEditar == matrizContatos[i][0] || itemEditar == matrizContatos[i][1]){
+            alert("Contato encontrado!");
+            let flagEdit = true;
+            let opcaoEditar = "";
+            do{
+                opcaoEditar = parseInt(prompt("Digite 1 para editar o nome do contato ou 2 para editar o número de telefone"));
+
+                switch(opcaoEditar){
+                    case 1:
+                        let newNomContato = prompt("Digite o novo nome do contato: ");
+                        matrizContatos[i][0] = newNomContato;
+                        break;
+                    case 2:
+                        let newNumContato = prompt("Digite o novo número do contato: ");
+                        matrizContatos[i][1] = newNumContato
+                        break;
+                    case 3:
+                        alert("Operação cancelada!")
+                        alert("saindo...")
+                        flagEdit = false
+                    default:
+                        alert("Digite algo valido!")
+
+                }
+            }while(flagEdit === true);
+        };
+    };
+};
 
 //5.FUNÇÃO PARA PEDIR DADOS(FEITO);
 function funcaoDados(){
@@ -50,7 +83,7 @@ let opcao = ""
 let usu = prompt("Digite seu nome do usuário: ")
     do{
 
-        opcao = parseInt(prompt(`------------------------------------------------------------------------------ \nBem vindo ${usu} a sua agenda de contatos\n ------------------------------------------------------------------------------  [1] para adicionar um contato \n [2] para visualizar todos os contatos \n [3] para remover um contato \n [4] para editar os dados de algum contato \n [5] para sair`))
+        opcao = parseInt(prompt(`---------------------------------------------------------------------------- \nBem vindo ${usu} a sua agenda de contatos\n ----------------------------------------------------------------------------  [1] para adicionar um contato \n [2] para visualizar todos os contatos \n [3] para remover um contato \n [4] para editar os dados de algum contato \n [5] para sair`))
 
         switch(opcao){
             case 1:
@@ -62,11 +95,11 @@ let usu = prompt("Digite seu nome do usuário: ")
                 funcaoVisualizar(matrizContatos);
                 break;
             case 3:
-                funcaoRemover()
+                funcaoRemover();
                 break;
             case 4:
                 //FUNÇÃO EDITAR;
-                alert("4");
+                funcaoEditar();
                 break;
             case 5:
                 alert("saindo...");
